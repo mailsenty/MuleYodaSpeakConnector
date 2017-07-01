@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<namespace xmlns="http://www.mulesoft.org/schema/mule/tooling.attributes" xmlns:mule="http://www.mulesoft.org/schema/mule/core" url="http://www.mulesoft.org/schema/mule/yoda-speak" prefix="yoda-speak">
+  <global-cloud-connector versions="[3.5.0,8.0.0]" caption="YodaSpeak" description="" icon="" localId="parentConfig" image="" abstract="true" extends="http://www.mulesoft.org/schema/mule/yoda-speak/abstractYoda-speakConnectorGeneric"></global-cloud-connector>
+  <global-cloud-connector versions="[3.5.0,8.0.0]" caption="YodaSpeak: Configuration" description="Global Configuration configuration information." icon="icons/theme.classic/yoda-speak-connector-small.png" localId="config" image="icons/theme.classic/yoda-speak-connector-large.png" abstract="false" extends="http://www.mulesoft.org/schema/mule/yoda-speak/parentConfig" connectivityTesting="off" metaData="static" metaDataKeyDisplay="DISPLAY_NAME" supportsUserDefinedMetaData="false">
+    <attribute-category caption="General" description="Yoda-speak configuration properties.">
+      <group id="yoda-speakGenericProperties" caption="Basic Settings">
+        <name name="name" caption="Name" description="Give a name to this configuration so it can be later referenced by config-ref." required="true"></name>
+      </group>
+    </attribute-category>
+  </global-cloud-connector>
+  <cloud-connector caption="Abstractyoda-speakconnectorgeneric" description="Interact with Yoda-speak." icon="icons/theme.classic/yoda-speak-connector-small.png" localId="abstractYoda-speakConnectorGeneric" image="icons/theme.classic/yoda-speak-connector-large.png" abstract="true">
+    <attribute-category caption="General" description="General.">
+      <group id="abstractYoda-speakConnectorGeneric" caption="Basic Settings">
+        <globalRef requiredType="http://www.mulesoft.org/schema/mule/yoda-speak/config" name="config-ref" caption="Connector Configuration" description="Specify which configuration to use for this invocation." required="true"></globalRef>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector versions="[3.5.0,8.0.0]" aliasId="org.mule.tooling.ui.modules.core.pattern.yoda-speak" caption="YodaSpeak" description="" icon="icons/theme.classic/yoda-speak-connector-small.png" localId="yoda-speak-connector" image="icons/theme.classic/yoda-speak-connector-large.png" extends="http://www.mulesoft.org/schema/mule/yoda-speak/abstractYoda-speakConnectorGeneric">
+    <attribute-category caption="General" description="General.">
+      <group id="yoda-speakConnectorGeneric" caption="Basic Settings">
+        <modeSwitch alwaysCombo="true" name="Yoda-speak operations to execute" caption="Operation" description="Operation.">
+          <no-operation abstractElement="http://www.mulesoft.org/schema/mule/yoda-speak/abstractYoda-speakConnectorGeneric" versions="[3.5.0,8.0.0]" connector-name="processor"></no-operation>
+          <mode modeId="http://www.mulesoft.org/schema/mule/yoda-speak/get-yoda-speak" modeLabel="Get yoda speak"></mode>
+        </modeSwitch>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Get Yoda Speak" icon="icons/theme.classic/yoda-speak-connector-small.png" localId="get-yoda-speak" image="icons/theme.classic/yoda-speak-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/yoda-speak/abstractYoda-speakConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="sentence" caption="Sentence" description="" required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+</namespace>
